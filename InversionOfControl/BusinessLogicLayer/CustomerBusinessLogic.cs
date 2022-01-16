@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace InversionOfControl.BusinessLogicLayer
 {
-    public class CustomerBusinessLogic
+    public class CustomerBusinessLogic: IDataAccessDependency
     {
-        public ICustomerDataAccess _customerDataAccess { get; set; }
+        ICustomerDataAccess _customerDataAccess;
 
         public CustomerBusinessLogic()
         {
@@ -21,5 +21,11 @@ namespace InversionOfControl.BusinessLogicLayer
         {
             return _customerDataAccess.GetCustomerName(id);
         }
+
+        public void SetDependency(ICustomerDataAccess customerDataAccess)
+        {
+            _customerDataAccess = customerDataAccess;
+        }
+
     }
 }
