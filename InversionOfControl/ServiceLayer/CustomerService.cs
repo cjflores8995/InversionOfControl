@@ -15,7 +15,8 @@ namespace InversionOfControl.ServiceLayer
 
         public CustomerService()
         {
-            _customerBL = new CustomerBusinessLogic(new OracleDataAccess()); //new CustomerDataAccess();
+            _customerBL = new CustomerBusinessLogic();
+            _customerBL._customerDataAccess = new CustomerDataAccess();
         }
 
         public string GetCustomerName(int id)

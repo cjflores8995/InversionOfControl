@@ -11,11 +11,10 @@ namespace InversionOfControl.BusinessLogicLayer
 {
     public class CustomerBusinessLogic
     {
-        private readonly ICustomerDataAccess _customerDataAccess;
+        public ICustomerDataAccess _customerDataAccess { get; set; }
 
-        public CustomerBusinessLogic(ICustomerDataAccess customerDataAccess)
+        public CustomerBusinessLogic()
         {
-            _customerDataAccess = customerDataAccess;
         }
 
         public string GetCustomerName(int id)
